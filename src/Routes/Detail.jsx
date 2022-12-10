@@ -1,41 +1,38 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-import axios from "axios";
-
-//Este componente debera ser estilado como "dark" o "light" dependiendo del theme del Context
+import axios from 'axios'
 
 const Detail = () => {
+  //const { providerValue } = useContextGlobal();
+  //const { stateTheme } = providerValue;
+  //className={stateTheme.theme} acá el fragment lo cambiaría por div y le pondría ésta className
+  // Consumiendo el parametro dinamico de la URL deberan hacer un fetch a un user en especifico
   const { id } = useParams();
 
-  const [dentista, setDentista] = useState([]);
+  const [dentist, setDentist] = useState([]);
   const url = `https://jsonplaceholder.typicode.com/users/${id}`;
   useEffect(() => {
-    axios(url).then((res) => setDentista([res.data]));
+    axios(url).then((res) => setDentist([res.data]));
   }, [url]);
-
- 
-
   return (
     <>
-      <h1>Detail Dentist id </h1>
-      
-
+      <h1>Detail Dentist {id} </h1>
       <table>
         <thead>
           <tr>
-            <th>Nombre</th>
-            <th>Correo</th>
-            <th>Teléfono</th>
-            <th>Página Web</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Phone</th>
+            <th>Website</th>
           </tr>
         </thead>
         <tbody>
-          {dentista.map((dentista) => (
-            <tr key={dentista.id}>
-              <td>{dentista.name}</td>
-              <td>{dentista.phone}</td>
-              <td>{dentista.website}</td>
-              <td>{dentista.email}</td>
+          {dentist.map((dent) => (
+            <tr key={dent.id}>
+              <td>{dent.name}</td>
+              <td>{dent.email}</td>
+              <td>{dent.phone}</td>
+              <td>{dent.website}</td>
             </tr>
           ))}
         </tbody>
