@@ -12,13 +12,13 @@ const Footer = () => {
       <img src="/images/DH.png" alt="DH-logo" />
 
       <img
-        className="socialMedia"
+        className="redes"
         src="/images/ico-instagram.png"
         alt="Instagram"
       />
 
       <img
-        className="socialMedia"
+        className="redes"
         src="/images/ico-facebook.png"
         alt="Facebook"
       />
@@ -26,7 +26,7 @@ const Footer = () => {
       <img className="socialMedia" src="/images/ico-tiktok.png" alt="Tiktok" />
 
       <img
-        className="socialMedia"
+        className="redes"
         src="/images/ico-whatsapp.png"
         alt="Whatsapp"
       />

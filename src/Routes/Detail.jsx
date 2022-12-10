@@ -19,7 +19,7 @@ const Detail = () => {
   }, []);
   return (
     <>
-      <h1>Detail Dentist {id} </h1>
+      <h1>Detail Dentist ID: {id} </h1>
       <table>
         <thead>
           <tr>
@@ -30,12 +30,12 @@ const Detail = () => {
           </tr>
         </thead>
         <tbody>
-          {dentist.map((dent) => (
-            <tr key={dent.id}>
-              <td>{dent.name}</td>
-              <td>{dent.email}</td>
-              <td>{dent.phone}</td>
-              <td>{dent.website}</td>
+          {dentist.map((dentist) => (
+            <tr key={dentist.id}>
+              <td>{dentist.name}</td>
+              <td>{dentist.email}</td>
+              <td>{dentist.phone}</td>
+              <td>{dentist.website}</td>
             </tr>
           ))}
         </tbody>
