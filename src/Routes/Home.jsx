@@ -12,7 +12,7 @@ const Home = () => {
       <main>
         <h1>Home</h1>
         <div className="card-grid">
-          {dentistaData.map((dentista) => (
+        {dentistaData.map((dentista) => (
             <React.Fragment key={dentista.id}>
               <Card
                 id={dentista.id}

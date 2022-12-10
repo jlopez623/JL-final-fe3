@@ -3,9 +3,10 @@ import React from "react";
 import Card from "../Components/Card";
 import { useGlobalStates } from "../Components/utils/global.context";
 
-//Este componente debera ser estilado como "dark" o "light" dependiendo del theme del Context
+
 
 const Favs = () => {
+  
   const { fav } = useGlobalStates();
   
 
@@ -14,9 +15,9 @@ const Favs = () => {
       <h1>Dentists Favs</h1>
       
       <div className="card-grid">
-        {fav.map((item) => (
-          <React.Fragment key={item.id}>
-            <Card id={item.id} name={item.name} username={item.username}></Card>
+        {fav.map((dentista) => (
+          <React.Fragment key={dentista.id}>
+            <Card id={dentista.id} name={dentista.name} username={dentista.username}></Card>
           </React.Fragment>
         ))}
       </div>
