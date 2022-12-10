@@ -1,10 +1,21 @@
 import React from "react";
-
+import { Link } from "react-router-dom";
+import { useContextGlobal } from "../Components/utils/global.context";
+import { TYPES } from "./utils/actions/Fav";
 
 const Card = ({ name, username, id }) => {
+  const { providerValue } = useContextGlobal();
+  const { stateFav, dispatchFav } = providerValue;
 
   const addFav = ()=>{
     // Aqui iria la logica para agregar la Card en el localStorage
+
+    dispatchFav({
+      type: TYPES.ADD_FAV,
+      payload: { name, username, id },
+    });
+    alert("The selected dentist has been added to favorites!");
+
   }
 
   return (
