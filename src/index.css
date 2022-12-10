@@ -52,6 +52,10 @@ footer {
   margin-top: 2rem;
 }
 
+img{
+  max-width: 200px;
+}
+
 footer > img{
   width: 200px;
   margin: 0;

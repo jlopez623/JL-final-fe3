@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { useContextGlobal } from "../Components/utils/global.context";
+//import { useContextGlobal } from "../Components/utils/global.context";
 import { routes } from "../Routes/routing";
 
 //Este componente debera ser estilado como "dark" o "light" dependiendo del theme del Context

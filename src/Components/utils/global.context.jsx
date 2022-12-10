@@ -20,7 +20,7 @@ export const ContextProvider = ({ children }) => {
   },[]);
 
 
-  function initFav(initialValue) {
+  function startFav(initialValue) {
     return localStorage.getItem("favs")
       ? JSON.parse(localStorage.getItem("favs"))
       : initialValue;
@@ -28,7 +28,7 @@ export const ContextProvider = ({ children }) => {
   const [stateFav, dispatchFav] = useReducer(
     rFav,
     initialState.data,
-    initFav
+    startFav
   );
   useEffect(() => {
     localStorage.setItem("favs", JSON.stringify(stateFav));
@@ -43,7 +43,7 @@ export const ContextProvider = ({ children }) => {
   
 
   return (
-    <ContextGlobal.Provider value={{dentistaData, dispatchFav, stateFav}}>
+    <ContextGlobal.Provider value={{dentistaData, dispatchFav, fav}}>
       {children}
     </ContextGlobal.Provider>
   );

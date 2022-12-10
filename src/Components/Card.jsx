@@ -5,7 +5,7 @@ import { useGlobalStates } from "../Components/utils/global.context";
 import { TYPES } from "./utils/acciones/Fav";
 
 const Card = ({ name, username, id }) => {
-  const {  dispatchFav, stateFav } = useGlobalStates();
+  const {  dispatchFav  } = useGlobalStates();
   //const { stateFav, dispatchFav } = providerValue;
 
   const addFav = ()=>{
