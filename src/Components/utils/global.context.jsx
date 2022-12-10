@@ -43,7 +43,7 @@ export const ContextProvider = ({ children }) => {
   
 
   return (
-    <ContextGlobal.Provider value={{dentistaData, dispatchFav}}>
+    <ContextGlobal.Provider value={{dentistaData, dispatchFav, stateFav}}>
       {children}
     </ContextGlobal.Provider>
   );
