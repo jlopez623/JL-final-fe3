@@ -20,6 +20,7 @@ const Home = () => {
                 id={item.id}
                 name={item.name}
                 username={item.username}
+                className='favButton'
               ></Card>
             </React.Fragment>
           ))}

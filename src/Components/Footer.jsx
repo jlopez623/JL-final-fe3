@@ -2,10 +2,12 @@ import React from "react";
 import { useContextGlobal } from "./utils/global.context";
 const Footer = () => {
   const { providerValue } = useContextGlobal();
-  const { stateTheme } = providerValue;
+  const { stateTheme: stateDark } = providerValue;
+
   return (
-    <footer className={stateTheme.theme}>
-      <span height='30px' ></span>
+    
+    <footer className={stateDark.theme}>
+      
       <p>Powered by</p>
       <img src="/images/DH.png" alt="DH-logo" />
 

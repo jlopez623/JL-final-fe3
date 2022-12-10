@@ -9,14 +9,14 @@ const Card = ({ name, username, id }) => {
 
   const addFav = () => {
     dispatchFav({
-      type: TYPES.ADD_FAV,
+      type: TYPES.ADD,
       payload: { name, username, id },
     });
     alert(`Dentist ${name} has been added to your list`);
   };
   const removeFav = () => {
     dispatchFav({
-      type: TYPES.REMOVE_FAV,
+      type: TYPES.REMOVE,
       payload: id,
     });
     alert(`Dentist ${name} has been removed from your list`);

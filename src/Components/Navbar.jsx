@@ -7,7 +7,7 @@ import { TYPES } from "./utils/reducer/ChangeThemeAction";
 const Navbar = () => {
   const { providerValue } = useContextGlobal();
   const { dispatchTheme, stateTheme } = providerValue;
-  const handleChangeTheme = () => {
+  const dark = () => {
     stateTheme.theme === (stateTheme.theme = "")
       ? dispatchTheme({ type: TYPES.DARK })
       : dispatchTheme({ type: TYPES.LIGHT });
@@ -21,9 +21,9 @@ const Navbar = () => {
 
       <>
         {stateTheme.theme === "" ? (
-          <button onClick={handleChangeTheme}>Change Theme</button>
+          <button onClick={dark}>Change Theme</button>
         ) : (
-          <button onClick={handleChangeTheme}>Change Theme</button>
+          <button onClick={dark}>Change Theme</button>
         )}
       </>
     </nav>

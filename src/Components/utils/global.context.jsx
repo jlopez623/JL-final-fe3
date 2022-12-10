@@ -8,7 +8,7 @@ import {
 } from "react";
 import axios from "axios";
 import { reducerFav } from "./reducer/reducerFav";
-import { reducerTheme } from "./reducer/reducerChangeTheme";
+import { reducerDark } from "./reducer/reducerChangeTheme";
 
 const initialState = { theme: "", data: [] };
 
@@ -40,7 +40,7 @@ const ContextProvider = ({ children }) => {
     setFav(data);
   }, [stateFav]);
 
-  const [stateTema, dispatchTheme] = useReducer(reducerTheme, initialState);
+  const [stateTema, dispatchTheme] = useReducer(reducerDark, initialState);
 
   const providerValue = useMemo(
     () => ({dentists, setDentists, stateTheme: stateTema, dispatchTheme, stateFav, dispatchFav, fav, setFav,}), [dentists, setDentists, stateTema, dispatchTheme, stateFav, dispatchFav, fav, setFav,]

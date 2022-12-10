@@ -1,24 +1,26 @@
+
+
 import React from "react";
 import Card from "../Components/Card";
 import { useContextGlobal } from "../Components/utils/global.context";
 import { TYPES } from "../Components/utils/reducer/FavAction";
-//Este componente debera ser estilado como "dark" o "light" dependiendo del theme del Context
+
 
 const Favs = () => {
   const { providerValue } = useContextGlobal();
   const { dispatchFav, fav } = providerValue;
 
-  const handleDeleteAll = (e) => {
+  const removeAll = (e) => {
     e.preventDefault();
     dispatchFav({
-      type: TYPES.REMOVE_ALL_fAV,
+      type: TYPES.REMOVE_ALL,
     });
   };
 
   return (
     <>
       <h1>Dentists Favs</h1>
-      <button onClick={handleDeleteAll}>Delete all Favourites Dentist</button>
+      <button onClick={removeAll}>Delete all Favourites Dentist</button>
       <div className="card-grid">
         {fav.map((item) => (
           <React.Fragment key={item.id}>

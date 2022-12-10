@@ -1,5 +1,5 @@
 import { TYPES } from "./ChangeThemeAction";
-export const reducerTheme = (state, action) => {
+export const reducerDark = (state, action) => {
   switch (action.type) {
     case TYPES.LIGHT:
       return {
