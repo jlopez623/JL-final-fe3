@@ -6,7 +6,7 @@ import Detail from "./Routes/Detail";
 import Favs from "./Routes/Favs";
 
 import {  Routes, Route } from "react-router-dom";
-import { routes } from "./Routes/routing";
+import { routes } from "./Routes/routes";
 
 function App() {
   return (

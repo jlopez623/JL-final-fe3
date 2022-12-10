@@ -1,19 +1,31 @@
 import React from "react";
 import { Link } from "react-router-dom";
-//import { useContextGlobal } from "../Components/utils/global.context";
-import { routes } from "../Routes/routing";
-
-//Este componente debera ser estilado como "dark" o "light" dependiendo del theme del Context
+import { routes } from "../Routes/routes";
+import { useContextGlobal } from "../Components/utils/global.context";
+import { TYPES } from "./utils/reducer/actions/ThemeAction";
 
 const Navbar = () => {
+  const { providerValue } = useContextGlobal();
+  const { dispatchTheme, stateTheme } = providerValue;
+  const handleChangeTheme = () => {
+    stateTheme.theme === (stateTheme.theme = "")
+      ? dispatchTheme({ type: TYPES.DARK })
+      : dispatchTheme({ type: TYPES.LIGHT });
+  };
+
   return (
-    <nav className="">
-     
-      
+    <nav className={stateTheme.theme}>
       <Link to={routes.home}>Home</Link>
       <Link to={routes.contact}>Contact</Link>
       <Link to={routes.fav}>Favorites</Link>
-      <button>Change theme</button>
+
+      <>
+        {stateTheme.theme === "" ? (
+          <button onClick={handleChangeTheme}>Change Theme</button>
+        ) : (
+          <button onClick={handleChangeTheme}>Change Theme</button>
+        )}
+      </>
     </nav>
   );
 };

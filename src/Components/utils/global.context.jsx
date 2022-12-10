@@ -1,34 +1,34 @@
+import {
+  createContext,
+  useContext,
+  useEffect,
+  useState,
+  useMemo,
+  useReducer,
+} from "react";
 import axios from "axios";
-import { createContext, useContext, useEffect, useState, useReducer   } from "react";
+import { reducerFav } from "./reducer/reducerFav";
+import { reducerTheme } from "./reducer/reducerChangeTheme";
 
-import rFav from './reducers/rFav.jsx'
-
-export const initialState = {theme: "", data: []}
+const initialState = { theme: "", data: [] };
 
 export const ContextGlobal = createContext();
+const ContextProvider = ({ children }) => {
+  const [dentists, setDentists] = useState([]);
+  const url = "https://jsonplaceholder.typicode.com/users";
+  useEffect(() => {
+    axios(url).then((res) => setDentists(res.data));
+  }, [url]);
 
-export const ContextProvider = ({ children }) => {
-  
-
-  const [dentistaData, setDentistaData] = useState()
-
-  //const [state, dispatch]= useReducer(reducer, initialState)
-
-  useEffect(()=>{
-    axios('https://jsonplaceholder.typicode.com/users')
-    .then((res) => setDentistaData(res.data))
-  },[]);
-
-
-  function startFav(initialValue) {
+  function initFav(initialValue) {
     return localStorage.getItem("favs")
       ? JSON.parse(localStorage.getItem("favs"))
       : initialValue;
   }
   const [stateFav, dispatchFav] = useReducer(
-    rFav,
+    reducerFav,
     initialState.data,
-    startFav
+    initFav
   );
   useEffect(() => {
     localStorage.setItem("favs", JSON.stringify(stateFav));
@@ -40,19 +40,21 @@ export const ContextProvider = ({ children }) => {
     setFav(data);
   }, [stateFav]);
 
-  
+  const [stateTema, dispatchTheme] = useReducer(reducerTheme, initialState);
+
+  const providerValue = useMemo(
+    () => ({dentists, setDentists, stateTheme: stateTema, dispatchTheme, stateFav, dispatchFav, fav, setFav,}), [dentists, setDentists, stateTema, dispatchTheme, stateFav, dispatchFav, fav, setFav,]
+  );
 
   return (
-    <ContextGlobal.Provider value={{dentistaData, dispatchFav, fav}}>
+    <ContextGlobal.Provider value={{ providerValue }}>
       {children}
     </ContextGlobal.Provider>
   );
 };
 
-export default ContextProvider
+export default ContextProvider;
 
-export const useGlobalStates=()=>{
-  return useContext(ContextGlobal)
-
-}
-
+export const useContextGlobal = () => {
+  return useContext(ContextGlobal);
+};

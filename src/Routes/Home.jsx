@@ -1,23 +1,25 @@
 import React from "react";
-
-import { useGlobalStates } from "../Components/utils/global.context";
-import Card from '../Components/Card';
+import Card from "../Components/Card";
+import { useContextGlobal } from "../Components/utils/global.context";
 
 //Este componente debera ser estilado como "dark" o "light" dependiendo del theme del Context
 
 const Home = () => {
-  const { dentistaData } = useGlobalStates();
+  const { providerValue } = useContextGlobal();
+  const { dentists, stateTheme } = providerValue;
+  //className={stateTheme.theme}
   return (
     <>
+    
       <main>
         <h1>Home</h1>
         <div className="card-grid">
-        {dentistaData.map((dentista) => (
-            <React.Fragment key={dentista.id}>
+          {dentists.map((item) => (
+            <React.Fragment key={item.id}>
               <Card
-                id={dentista.id}
-                name={dentista.name}
-                username={dentista.username}
+                id={item.id}
+                name={item.name}
+                username={item.username}
               ></Card>
             </React.Fragment>
           ))}

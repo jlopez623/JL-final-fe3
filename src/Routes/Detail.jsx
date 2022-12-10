@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-import axios from 'axios'
+import axios from "axios";
+import { useContextGlobal } from "../Components/utils/global.context";
+
+//Este componente debera ser estilado como "dark" o "light" dependiendo del theme del Context
 
 const Detail = () => {
   //const { providerValue } = useContextGlobal();
@@ -13,7 +16,7 @@ const Detail = () => {
   const url = `https://jsonplaceholder.typicode.com/users/${id}`;
   useEffect(() => {
     axios(url).then((res) => setDentist([res.data]));
-  }, [url]);
+  }, []);
   return (
     <>
       <h1>Detail Dentist {id} </h1>
