@@ -5,6 +5,7 @@ const Footer = () => {
   const { stateTheme } = providerValue;
   return (
     <footer className={stateTheme.theme}>
+      <span height='30px' ></span>
       <p>Powered by</p>
       <img src="/images/DH.png" alt="DH-logo" />
 

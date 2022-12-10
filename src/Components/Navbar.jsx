@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { routes } from "../Routes/routes";
 import { useContextGlobal } from "../Components/utils/global.context";
-import { TYPES } from "./utils/reducer/actions/ThemeAction";
+import { TYPES } from "./utils/reducer/ChangeThemeAction";
 
 const Navbar = () => {
   const { providerValue } = useContextGlobal();
